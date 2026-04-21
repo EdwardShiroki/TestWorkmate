@@ -10,8 +10,12 @@ def add_clickbait_videos(result:list, file_path:str):
             except ValueError:
                 continue
 
-def proceed_all_files(files:list[str]) -> list[list]:
+def proceed_all_files(files:list[str], method:str) -> list[list]:
     res = []
-    for f in files:
-        add_clickbait_videos(res, f)
-    return res
+    match method:
+        case 'clickbait':
+            for f in files:
+                add_clickbait_videos(res, f)
+            return res
+        case _:
+            raise ValueError(f"There is no such report method: {method}")

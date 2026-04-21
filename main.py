@@ -9,5 +9,5 @@ parser.add_argument('--report', type=str, help='Report name', required=True)
 args = parser.parse_args()
 
 
-res = proceed_all_files(args.files)
+res = proceed_all_files(args.files, args.report)
 pretty_out(res)
